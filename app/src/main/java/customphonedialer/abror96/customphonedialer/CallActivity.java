@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
@@ -37,6 +38,7 @@ public class CallActivity extends AppCompatActivity {
     private CompositeDisposable disposables;
     private String number;
     private OngoingCall ongoingCall;
+    public  static String PhoneState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +105,8 @@ public class CallActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private Consumer<? super Integer> updateUi(Integer state) {
 
-        callInfo.setText(asString(state) + "\n" + number);
+        callInfo.setText(Constants.asString(state).toLowerCase() + "\n" + number);
+        PhoneState= callInfo.getText().toString();
 
         if (state != Call.STATE_RINGING) {
             answer.setVisibility(View.GONE);

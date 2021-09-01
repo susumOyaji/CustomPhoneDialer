@@ -10,6 +10,7 @@ import android.telecom.TelecomManager;
 import android.view.KeyEvent;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,7 +26,7 @@ public class DialerActivity extends AppCompatActivity {
 
     @BindView(R.id.phoneNumberInput)
     EditText phoneNumberInput;
-
+    CallActivity callActivity = new CallActivity();
     public static int REQUEST_PERMISSION = 0;
 
     @Override
@@ -58,6 +59,10 @@ public class DialerActivity extends AppCompatActivity {
             Uri uri = Uri.parse("tel:"+phoneNumberInput.getText().toString().trim());
             startActivity(new Intent(Intent.ACTION_CALL, uri));
         }
+        String ps = callActivity.PhoneState;
+        Toast.makeText(DialerActivity.this, "makeCall  CallActivity.PhoneState:  " + ps , Toast.LENGTH_SHORT).show();
+
+        //return tv;
     }
 
     private void offerReplacingDefaultDialer() {
