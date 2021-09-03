@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Locale;
 import java.util.Objects;
@@ -73,6 +74,7 @@ public class CallActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        Toast.makeText(CallActivity.this, "CallActivity onStart():  " , Toast.LENGTH_SHORT).show();
         assert updateUi(-1) != null;
         disposables.add(
                 OngoingCall.state

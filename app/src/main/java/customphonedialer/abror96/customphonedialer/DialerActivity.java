@@ -44,7 +44,7 @@ public class DialerActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         offerReplacingDefaultDialer();
-
+        Toast.makeText(DialerActivity.this, "DialerActivity onStart():  " , Toast.LENGTH_SHORT).show();
         phoneNumberInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -56,10 +56,10 @@ public class DialerActivity extends AppCompatActivity {
 
     private void makeCall() {
         if (android.support.v4.content.PermissionChecker.checkSelfPermission(this, CALL_PHONE) == PERMISSION_GRANTED) {
-            Uri uri = Uri.parse("tel:"+phoneNumberInput.getText().toString().trim());
+            Uri uri = Uri.parse("tel:"+phoneNumberInput.getText().toString().trim());//CallNumber to input
             startActivity(new Intent(Intent.ACTION_CALL, uri));
         }
-        String ps = callActivity.PhoneState;
+        String ps = "";//CallActivity.PhoneState;
         Toast.makeText(DialerActivity.this, "makeCall  CallActivity.PhoneState:  " + ps , Toast.LENGTH_SHORT).show();
 
         //return tv;
