@@ -4,8 +4,10 @@
         {
             "label": "run gradle",
             "type": "shell",
-            //"command": "${workspaceFolder}/gradlew",
-            "command": "com.android.tools.build:gradle:3.2.1",
+            "command": "${workspaceFolder}/gradlew",
+            //"command": "chmod +x gradlew",,
+            
+           
             "args": [
                 "assembleDebug"
             ],
