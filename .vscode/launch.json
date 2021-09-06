@@ -18,31 +18,31 @@
             "flutterMode": "profile",
         },
         {
+            "name": "Android Build & Launch",
             "type": "android",
             "request": "launch",
-            "name": "App Build & Launch",
-            "appSrcRoot": "${workspaceRoot}/android/app/src/main",
-            "apkFile": "${workspaceRoot}/build/app/outputs/apk/debug/app-debug.apk",
+            "appSrcRoot": "${workspaceRoot}/app/src/main",
+            "apkFile": "${workspaceRoot}/app/build/outputs/apk/debug/app-debug.apk",
             "preLaunchTask": "run gradle",
             "autoStartADB": true,
             "adbSocket": "localhost:5037",
             //...
         },
         {
+            "name": "Android Launch",
             "type": "android",
             "request": "launch",
-            "name": "Android Launch",
             "appSrcRoot": "${workspaceRoot}/android/app/src/main",
-            "apkFile": "${workspaceRoot}/build/app/outputs/apk/debug/app-debug.apk",
+            "apkFile": "${workspaceRoot}/app/build/outputs/apk/debug/app-debug.apk",
             "adbPort": 5037
         },
        
         {
             // configuration type, request  and name. "launch" is used to deploy the app
             // to your device and start a debugging session.
+            "name": "Launch App",
             "type": "android",
             "request": "launch",
-            "name": "Launch App",
             // Location of the App source files. This value must point to the root of
             // your App source tree (containing AndroidManifest.xml).
             "appSrcRoot": "${workspaceRoot}/android/app/src/main",

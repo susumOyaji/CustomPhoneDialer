@@ -27,6 +27,7 @@ public class DialerActivity extends AppCompatActivity {
     @BindView(R.id.phoneNumberInput)
     EditText phoneNumberInput;
     CallActivity callActivity = new CallActivity();
+
     public static int REQUEST_PERMISSION = 0;
 
     @Override
@@ -34,6 +35,8 @@ public class DialerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dialer);
         ButterKnife.bind(this);
+
+        
 
         if (getIntent() != null && getIntent().getData() != null)
             phoneNumberInput.setText(getIntent().getData().getSchemeSpecificPart());
@@ -45,6 +48,10 @@ public class DialerActivity extends AppCompatActivity {
         super.onStart();
         offerReplacingDefaultDialer();
         Toast.makeText(DialerActivity.this, "DialerActivity onStart():  " , Toast.LENGTH_SHORT).show();
+        
+        Intent i = new Intent(this,CallActivity.class);
+        //startActivity(i);
+        
         phoneNumberInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -59,7 +66,7 @@ public class DialerActivity extends AppCompatActivity {
             Uri uri = Uri.parse("tel:"+phoneNumberInput.getText().toString().trim());//CallNumber to input
             startActivity(new Intent(Intent.ACTION_CALL, uri));
         }
-        String ps = "";//CallActivity.PhoneState;
+        String ps = callActivity.PhoneState;
         Toast.makeText(DialerActivity.this, "makeCall  CallActivity.PhoneState:  " + ps , Toast.LENGTH_SHORT).show();
 
         //return tv;

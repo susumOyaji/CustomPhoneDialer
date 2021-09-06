@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        
         <activity
             android:name=".DialerActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize">
@@ -38,7 +38,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".CallActivity" />
+        
         <service
             android:name=".CallService"
             android:permission="android.permission.BIND_INCALL_SERVICE">
@@ -50,7 +51,7 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".CallActivity" />
+        
     </application>
 
 </manifest>

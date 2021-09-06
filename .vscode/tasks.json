@@ -6,8 +6,6 @@
             "type": "shell",
             "command": "${workspaceFolder}/gradlew",
             //"command": "chmod +x gradlew",,
-            
-           
             "args": [
                 "assembleDebug"
             ],
