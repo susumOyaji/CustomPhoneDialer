@@ -4,20 +4,8 @@
     // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "name": "nativecode",
-            "request": "launch",
-            "type": "dart"
-        },
-
         
-        {
-            "name": "nativecode (profile mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile",
-        },
-        {
+      {
             "name": "Android Build & Launch",
             "type": "android",
             "request": "launch",

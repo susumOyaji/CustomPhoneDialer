@@ -82,6 +82,7 @@ public class CallActivity extends AppCompatActivity {
                             @Override
                             public void accept(Integer integer) throws Exception {
                                 updateUi(integer);
+                                Toast.makeText(CallActivity.this, "updateUi state    :" + PhoneState, Toast.LENGTH_SHORT).show();
                             }
                         }));
 
@@ -121,7 +122,7 @@ public class CallActivity extends AppCompatActivity {
             hangup.setVisibility(View.VISIBLE);
         } else
             hangup.setVisibility(View.GONE);
-
+           
         return null;
     }
 
