@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">CustomPhoneDialer</string>
+    <string name="app_name">CallReceiver</string>
+    <string name="action_settings">Settings</string>
 </resources>
