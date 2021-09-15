@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "customphonedialer.abror96.customphonedialer"
+        applicationId "jp.co.acesystems.callreceiver"
         minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
@@ -31,7 +31,7 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:4.7.0'
     implementation 'com.android.support:design:28.0.0'
 
-    // butterknife
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.android.support:design:23.2.1'
+
 }
