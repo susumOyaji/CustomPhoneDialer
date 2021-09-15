@@ -44,11 +44,7 @@ public class DisplayActivity extends AppCompatActivity {
         super.onResume();
         TextView tv = (TextView) this.findViewById(R.id.hwLabel);
         SharedPreferences pref = getSharedPreferences("CallReceiver", MODE_PRIVATE);
-<<<<<<< HEAD
-        tv.setText(pref.getString("text", "nothing.."));
-=======
         tv.setText(pref.getString("text", "nothing..何もない.."));
->>>>>>> c95b4a8667982d380e72336ceab4a883a1b920d0
    }
 
 
