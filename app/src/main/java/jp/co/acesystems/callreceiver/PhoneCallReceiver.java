@@ -69,6 +69,7 @@ public class PhoneCallReceiver extends BroadcastReceiver {
             Log.d(TAG, "Listener state:" + state+"-PhoneNumber:"+callNumber);
             switch(state){
                 case TelephonyManager.CALL_STATE_IDLE:      //待ち受け（終了時）
+<<<<<<< HEAD
 //                    Toast.makeText(ctx, "CALL_STATE_IDLE", Toast.LENGTH_LONG).show();
                     break;
                 case TelephonyManager.CALL_STATE_RINGING:   //着信
@@ -76,6 +77,15 @@ public class PhoneCallReceiver extends BroadcastReceiver {
                     break;
                 case TelephonyManager.CALL_STATE_OFFHOOK:   //通話
 //                    Toast.makeText(ctx, "CALL_STATE_OFFHOOK", Toast.LENGTH_LONG).show();
+=======
+                    Toast.makeText(ctx, "CALL_STATE_IDLE", Toast.LENGTH_LONG).show();
+                    break;
+                case TelephonyManager.CALL_STATE_RINGING:   //着信
+                    Toast.makeText(ctx, "CALL_STATE_RINGING: " + callNumber, Toast.LENGTH_LONG).show();
+                    break;
+                case TelephonyManager.CALL_STATE_OFFHOOK:   //通話
+                    Toast.makeText(ctx, "CALL_STATE_OFFHOOK", Toast.LENGTH_LONG).show();
+>>>>>>> c95b4a8667982d380e72336ceab4a883a1b920d0
                     break;
             }
         }
