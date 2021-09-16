@@ -71,10 +71,11 @@ public class PhoneCallReceiver extends BroadcastReceiver {
                 case TelephonyManager.CALL_STATE_IDLE:      //待ち受け（終了時）
                     Toast.makeText(ctx, "CALL_STATE_IDLE", Toast.LENGTH_LONG).show();
                     break;
-                case TelephonyManager.CALL_STATE_RINGING:   //着信
+                case TelephonyManager.CALL_STATE_RINGING:   //着信:電話の着信を検出し「呼び出し音 鳴動中」であることを示しています。
+                                                            //電話発信後の「接続相手電話機の呼び出し」のことではありません。
                     Toast.makeText(ctx, "CALL_STATE_RINGING: " + callNumber, Toast.LENGTH_LONG).show();
                     break;
-                case TelephonyManager.CALL_STATE_OFFHOOK:   //通話
+                case TelephonyManager.CALL_STATE_OFFHOOK:   //通話:受話器を持ち上げて「発信 または 着信を開始」したことを示しています。
                     Toast.makeText(ctx, "CALL_STATE_OFFHOOK", Toast.LENGTH_LONG).show();
                     break;
             }
