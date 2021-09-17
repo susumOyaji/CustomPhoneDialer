@@ -21,7 +21,7 @@ public class PhoneCallReceiver extends BroadcastReceiver {
     private Context ctx;
 
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(Context context, Intent intent) {// インテントを受け取ったときの処理をここに記述
         ctx = context;
         try {
             //TelephonyManagerの生成

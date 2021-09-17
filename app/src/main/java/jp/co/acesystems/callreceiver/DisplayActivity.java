@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
+import android.telecom.TelecomManager;
+import android.content.Intent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import static android.Manifest.permission.CALL_PHONE;
+import static android.telecom.TelecomManager.ACTION_CHANGE_DEFAULT_DIALER;
+import static android.support.v4.content.PermissionChecker.PERMISSION_GRANTED;
+import static android.telecom.TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME;
 
 public class DisplayActivity extends AppCompatActivity {
 
@@ -36,7 +43,7 @@ public class DisplayActivity extends AppCompatActivity {
 
         TextView tv = (TextView) this.findViewById(R.id.hwLabel);
         SharedPreferences pref = getSharedPreferences("CallReceiver", MODE_PRIVATE);
-        tv.setText(pref.getString("text","nothing.."));
+        tv.setText(pref.getString("text","nothing..Button"));
     }
 
     @Override
@@ -55,7 +62,28 @@ public class DisplayActivity extends AppCompatActivity {
 
         TextView tv = (TextView) this.findViewById(R.id.hwLabel);
         SharedPreferences pref = getSharedPreferences("CallReceiver", MODE_PRIVATE);
-        tv.setText(pref.getString("text", "nothing.."));
+        tv.setText(pref.getString("text", "nothing..clearHistories"));
     }
+
+     private void offerReplacingDefaultDialer() {
+        TelecomManager telecomManager = (TelecomManager) getSystemService(TELECOM_SERVICE);
+
+        if (!getPackageName().equals(telecomManager.getDefaultDialerPackage())) {
+            Intent intent = new Intent(ACTION_CHANGE_DEFAULT_DIALER)
+                    .putExtra(EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME, getPackageName());
+            startActivity(intent);
+        }
+    }
+
+    //@Override
+    //public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    //    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    //    if (requestCode == REQUEST_PERMISSION && ArraysKt.contains(grantResults, PERMISSION_GRANTED)) {
+    //        makeCall();
+    //    }
+    //}
+
+
+
 
 }

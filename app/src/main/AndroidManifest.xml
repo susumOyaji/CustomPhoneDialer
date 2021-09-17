@@ -22,8 +22,10 @@
         </activity>
 
         <receiver android:name=".PhoneCallReceiver">
-            <intent-filter>
+            <intent-filter android:priority="1">
                 <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="jp.co.acesystems.android.intent.action.PhoneCallReceiver" />
+                <category android:name="jp.co.android.intent.category.test.PhoneCallReceiver" />    
             </intent-filter>
         </receiver>
     </application>
