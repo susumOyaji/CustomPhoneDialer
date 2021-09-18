@@ -3,6 +3,7 @@
     package="jp.co.acesystems.callreceiver">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".DisplayActivity"
+            android:name=".IncomingCall"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -21,13 +22,14 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".PhoneCallReceiver">
+        
+        
+        <receiver android:name=".IncomingCall">
             <intent-filter android:priority="1">
                 <action android:name="android.intent.action.PHONE_STATE" />
-                <action android:name="jp.co.acesystems.android.intent.action.PhoneCallReceiver" />
-                <category android:name="jp.co.android.intent.category.test.PhoneCallReceiver" />    
             </intent-filter>
         </receiver>
+        
     </application>
 
 </manifest>

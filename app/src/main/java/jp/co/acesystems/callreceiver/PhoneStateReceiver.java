@@ -1,14 +1,14 @@
 package jp.co.acesystems.callreceiver;
 
 import android.content.BroadcastReceiver;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
-public class PhoneStateReceiver extends BoardcastReceiver{
+
+public class PhoneStateReceiver extends BroadcastReceiver {       
     TelephonyManager manager;
     PhoneReceiver myPhoneStateListener;
     static boolean alreadyListening = false;
@@ -21,31 +21,31 @@ public class PhoneStateReceiver extends BoardcastReceiver{
 
         //---do not add the listener more than once---
         if (!alreadyListening){
-            manager.listen(myPhoneStateListener, PhoneStateListener.LISTEN_CALL_DTATE);
+            manager.listen(myPhoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);//LISTEN_CALL_DTATE);
             alreadyListening = true;
         }
     }
 
-public class PhoneReceiver extends PhoneStateListener{
-    Context context;
-    public PhoneReceiver(Context context){
-        this.context = context;
-    }
+    public class PhoneReceiver extends PhoneStateListener{
+        Context context;
+        public PhoneReceiver(Context context){
+            this.context = context;
+        }
 
-    @Override
-    public void onCallStateChanged(int state, String incommingNumber){
-        super.onCallStateChanged(state, incommingNumber);
-        switch(state){
-            case TelephonyManager.CALL_STATE_IDLE:
-                Toast.makeText(context, "idle", Toast.LENGTH_LONG).show();
-            break;
-            case TelephonyManager.CALL_STATE_RINGING:
-                Toast.makeText(context, "Ringing: " + incommingNumber,Toast.LENGTH_LONG).show();
-            break;
-            case TelephonyManager.CALL_STATE_OFFHOOK:
-                Toast.makeText(context, "Offhook", Toast.LENGTH_LONG).show();
-            break;
-        }
+        @Override
+        public void onCallStateChanged(int state, String incommingNumber){
+            super.onCallStateChanged(state, incommingNumber);
+            switch(state){
+                case TelephonyManager.CALL_STATE_IDLE:
+                    Toast.makeText(context, "idle", Toast.LENGTH_LONG).show();
+                break;
+                case TelephonyManager.CALL_STATE_RINGING:
+                    Toast.makeText(context, "Ringing: " + incommingNumber,Toast.LENGTH_LONG).show();
+                break;
+                case TelephonyManager.CALL_STATE_OFFHOOK:
+                    Toast.makeText(context, "Offhook", Toast.LENGTH_LONG).show();
+                break;
+            }
         }
     }
-    }
+}

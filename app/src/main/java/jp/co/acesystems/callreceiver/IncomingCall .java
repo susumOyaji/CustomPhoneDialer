@@ -12,8 +12,8 @@ import android.widget.Toast;
 // * 着信イベントを受け取る
 // * Created by uramotomasaki on 15/06/03.
 // * Copyright (c) 2015 Storyboard All Right Reserved.
- class IncomingCall extends BroadcastReceiver {
-    //@SuppressWarnings("unused")
+class IncomingCall extends BroadcastReceiver {
+    @SuppressWarnings("unused")
     private final String TAG = getClass().getSimpleName();
 
     private Context ctx;
