@@ -6,15 +6,16 @@ import android.os.Bundle;
 import android.telephony.TelephonyManager;
 
 public class MainActivity extends Activity{
+    Context context;
     TelephonyManager manager;
-    PhoneReceiver myPhoneStateListener;
+    IncomingCall myPhoneStateListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
 
-        myPhoneStateListener = new PhoneReceiver(this);
+        myPhoneStateListener = new IncomingCall(this);
         manager = ((TelephonyManager) getSystemService(Context, TELEPHONY_SERVICE));
     }
 }
