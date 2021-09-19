@@ -2,6 +2,7 @@ package jp.co.acesystems.callreceiver;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 
@@ -13,9 +14,17 @@ public class MainActivity extends Activity{
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_display);
 
-        myPhoneStateListener = new IncomingCall(this);
-        manager = ((TelephonyManager) getSystemService(Context, TELEPHONY_SERVICE));
+        //第2引数に遷移先のActivityを指定してIntentを作成
+        //Intent intent = new Intent(MainActivity.this, IncomingCall.class);
+        //startActivity(intent);
+
+        IncomingCall myPhoneStateListener = new IncomingCall();
+        //manager = ((TelephonyManager) getSystemService(Context, TELEPHONY_SERVICE));
     }
+
+    
+
+
 }
