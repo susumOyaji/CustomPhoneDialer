@@ -1,6 +1,8 @@
 package jp.co.acesystems.callreceiver;
 
 import android.app.Activity;
+import android.widget.TextView; 
+//import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,6 +25,8 @@ public class MainActivity extends Activity{
         IncomingCall myPhoneStateListener = new IncomingCall();
         //manager = ((TelephonyManager) getSystemService(Context, TELEPHONY_SERVICE));
     }
+
+    
 
     
 
