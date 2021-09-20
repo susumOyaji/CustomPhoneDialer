@@ -3,7 +3,6 @@
     package="jp.co.acesystems.callreceiver">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.SEND_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -18,18 +17,19 @@
             </intent-filter>
         </activity>
         <!--/////着信などを制御するBroadcastReceiver/////-->
-        <receiver android:name=".receiver.IncomingCall">
+        <receiver android:name=".PhoneStateReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
         </receiver>
+        <!--
         <service android:name=".IncomingCall" android:permission="android.permission.BIND_INCALL_SERVICE">
             <meta-data android:name="android.telecom.IN_CALL_SERVICE_UI" android:value="true" />
             <intent-filter>
                 <action android:name="android.telecom.InCallService" />
             </intent-filter>
         </service>
-
+        -->
     </application>
 
 </manifest>
