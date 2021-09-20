@@ -15,9 +15,9 @@ public class MainActivity extends Activity{
     setContentView(R.layout.activity_main);
 
     myPhoneStateListener = new PhoneReceiver(this);
+    
     //端末情報取得クラス:TelephonyManager生成
     manager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-    //manager = (TelephonyManager)getSystemService(Context,TELEPHONY_SERVICE);
     }
 }
 
