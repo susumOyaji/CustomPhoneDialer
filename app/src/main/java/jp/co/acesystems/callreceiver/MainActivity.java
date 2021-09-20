@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
+import android.telephony.PhoneStateListener;
 
 public class MainActivity extends Activity{
     TelephonyManager manager;
@@ -19,6 +20,21 @@ public class MainActivity extends Activity{
     //端末情報取得クラス:TelephonyManager生成
     manager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
     }
+
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        manager.listen(myPhoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        manager.listen(myPhoneStateListener,PhoneStateListener.LISTEN_NONE);
+    }
+
+
 }
 
         /*
