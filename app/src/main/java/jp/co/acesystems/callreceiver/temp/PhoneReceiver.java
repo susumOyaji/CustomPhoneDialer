@@ -12,8 +12,7 @@ public class PhoneReceiver extends PhoneStateListener{
     }
 
     @Override
-    public void onCallStateChanged(int state,
-        String incomingNumber){
+    public void onCallStateChanged(int state,String incomingNumber){
         super.onCallStateChanged(state, incomingNumber);
 
         Toast.makeText(context, "onCallStateChanged state" +
