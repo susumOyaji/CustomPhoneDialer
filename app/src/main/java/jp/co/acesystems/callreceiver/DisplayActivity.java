@@ -18,10 +18,10 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-import static android.Manifest.permission.CALL_PHONE;
-import static android.telecom.TelecomManager.ACTION_CHANGE_DEFAULT_DIALER;
-import static android.support.v4.content.PermissionChecker.PERMISSION_GRANTED;
-import static android.telecom.TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME;
+//import static android.Manifest.permission.CALL_PHONE;
+//import static android.telecom.TelecomManager.ACTION_CHANGE_DEFAULT_DIALER;
+//import static android.support.v4.content.PermissionChecker.PERMISSION_GRANTED;
+//import static android.telecom.TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME;
 
 public class DisplayActivity extends AppCompatActivity {
 
@@ -66,6 +66,8 @@ public class DisplayActivity extends AppCompatActivity {
         tv.setText(pref.getString("text", "nothing..clearHistories"));
     }
 
+
+    /*
      private void offerReplacingDefaultDialer() {
         TelecomManager telecomManager = (TelecomManager) getSystemService(TELECOM_SERVICE);
 
@@ -75,6 +77,7 @@ public class DisplayActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+    */
 
     //@Override
     //public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
