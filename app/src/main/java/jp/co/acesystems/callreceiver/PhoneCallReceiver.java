@@ -30,7 +30,7 @@ public class PhoneCallReceiver extends BroadcastReceiver {
             MyPhoneStateListener PhoneListener = new MyPhoneStateListener();
 
             Bundle extras = intent.getExtras();
-//            Toast.makeText(context, "extras:" + extras.toString(),Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "extras:" + extras.toString(),Toast.LENGTH_LONG).show();
             System.out.println("extras-size:" + extras.size());
             System.out.println("extras-toString:" + extras.toString());
 //            Log.d("extras", "extras-size:" + extras.size());
