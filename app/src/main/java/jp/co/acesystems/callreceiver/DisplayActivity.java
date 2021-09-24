@@ -25,11 +25,12 @@ import org.w3c.dom.Text;
 
 public class DisplayActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
-        
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +47,9 @@ public class DisplayActivity extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences("CallReceiver", MODE_PRIVATE);
         tv.setText(pref.getString("text","nothing..Button"));
     }
+
+
+
 
     @Override
     protected void onResume() {
