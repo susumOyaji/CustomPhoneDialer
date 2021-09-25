@@ -6,8 +6,9 @@
     <!--全バージョンに対応させるには、READ_PHONE_STATEとREAD_CALL_LOGの２つの権限が必要です。-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <!--
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
-
+    -->
 
     <application
         android:allowBackup="true"
@@ -16,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".DisplayActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -28,6 +29,7 @@
 
         <receiver android:name=".PhoneCallReceiver">
             <intent-filter>
+                <action android:name="jp.co.acesystems.callreceiver.MY_BROADCAST"/>
                 <action android:name="android.intent.action.PHONE_STATE" />
                 <action android:name="android.intent.action.CALL_LOG" />
             </intent-filter>

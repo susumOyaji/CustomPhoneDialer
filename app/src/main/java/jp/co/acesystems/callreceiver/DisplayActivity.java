@@ -1,5 +1,9 @@
 package jp.co.acesystems.callreceiver;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Context;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -31,7 +35,7 @@ public class DisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
-
+        
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +50,8 @@ public class DisplayActivity extends AppCompatActivity {
         TextView tv = (TextView) this.findViewById(R.id.hwLabel);
         SharedPreferences pref = getSharedPreferences("CallReceiver", MODE_PRIVATE);
         tv.setText(pref.getString("text","nothing..Button"));
+
+
     }
 
 
@@ -57,6 +63,7 @@ public class DisplayActivity extends AppCompatActivity {
         TextView tv = (TextView) this.findViewById(R.id.hwLabel);
         SharedPreferences pref = getSharedPreferences("CallReceiver", MODE_PRIVATE);
         tv.setText(pref.getString("text", "nothing..何もない.."));
+
    }
 
 
@@ -71,9 +78,11 @@ public class DisplayActivity extends AppCompatActivity {
     }
 
 
+
     /*
      private void offerReplacingDefaultDialer() {
         TelecomManager telecomManager = (TelecomManager) getSystemService(TELECOM_SERVICE);
+
 
         if (!getPackageName().equals(telecomManager.getDefaultDialerPackage())) {
             Intent intent = new Intent(ACTION_CHANGE_DEFAULT_DIALER)

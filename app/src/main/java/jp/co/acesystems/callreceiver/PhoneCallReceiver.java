@@ -21,7 +21,14 @@ public class PhoneCallReceiver extends BroadcastReceiver {
     private Context ctx;
 
     @Override
-    public void onReceive(Context context, Intent intent) {// インテントを受け取ったときの処理をここに記述
+    public void onReceive(Context context, Intent intent) {
+        switch (intent.getAction()) {
+        case "jp.co.acesystems.callreceiver.MY_BROADCAST":
+            // ここで受信したブロードキャストに対する処理を実行
+            break;
+        }
+
+
         ctx = context;
         try {
             //TelephonyManagerの生成
@@ -30,7 +37,7 @@ public class PhoneCallReceiver extends BroadcastReceiver {
             MyPhoneStateListener PhoneListener = new MyPhoneStateListener();
 
             Bundle extras = intent.getExtras();
-            Toast.makeText(context, "extras:" + extras.toString(),Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, "extras:" + extras.toString(),Toast.LENGTH_LONG).show();
             System.out.println("extras-size:" + extras.size());
             System.out.println("extras-toString:" + extras.toString());
 //            Log.d("extras", "extras-size:" + extras.size());
@@ -69,14 +76,13 @@ public class PhoneCallReceiver extends BroadcastReceiver {
             Log.d(TAG, "Listener state:" + state+"-PhoneNumber:"+callNumber);
             switch(state){
                 case TelephonyManager.CALL_STATE_IDLE:      //待ち受け（終了時）
-                    Toast.makeText(ctx, "CALL_STATE_IDLE", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(ctx, "CALL_STATE_IDLE", Toast.LENGTH_LONG).show();
                     break;
-                case TelephonyManager.CALL_STATE_RINGING:   //着信:電話の着信を検出し「呼び出し音 鳴動中」であることを示しています。
-                                                            //電話発信後の「接続相手電話機の呼び出し」のことではありません。
-                    Toast.makeText(ctx, "CALL_STATE_RINGING: " + callNumber, Toast.LENGTH_LONG).show();
+                case TelephonyManager.CALL_STATE_RINGING:   //着信
+//                    Toast.makeText(ctx, "CALL_STATE_RINGING: " + callNumber, Toast.LENGTH_LONG).show();
                     break;
-                case TelephonyManager.CALL_STATE_OFFHOOK:   //通話:受話器を持ち上げて「発信 または 着信を開始」したことを示しています。
-                    Toast.makeText(ctx, "CALL_STATE_OFFHOOK", Toast.LENGTH_LONG).show();
+                case TelephonyManager.CALL_STATE_OFFHOOK:   //通話
+//                    Toast.makeText(ctx, "CALL_STATE_OFFHOOK", Toast.LENGTH_LONG).show();
                     break;
             }
         }
