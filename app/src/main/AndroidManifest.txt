@@ -51,7 +51,15 @@
             </intent-filter>
         </service>
         -->
-        
+         <receiver android:name=".PhoneCallReceiver">
+                    <intent-filter>
+                        <!--
+                        <action android:name="jp.co.acesystems.callreceiver.ORIGINAL_ACTION"/>
+                        -->
+                        <action android:name="android.intent.action.PHONE_STATE" />
+                        <action android:name="android.intent.action.CALL_LOG" />
+                    </intent-filter>
+          </receiver>
     </application>
 
 </manifest>

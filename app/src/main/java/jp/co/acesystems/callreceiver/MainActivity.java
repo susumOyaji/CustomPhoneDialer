@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.design.widget.FloatingActionButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +27,22 @@ public class MainActivity extends AppCompatActivity {
         intentFilter = new IntentFilter("ORIGINAL_ACTION");
 
         // onClickListenerの登録
+        //findViewById(R.id.fab).setOnClickListener(button1ClickListener);
         findViewById(R.id.fab).setOnClickListener(button1ClickListener);
+        /*
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        //fab.setOnClickListener(button1ClickListener);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Clear Preferences
+                button1ClickListener(view);
+
+
+            }
+        });
+        */
+       
     }
 
     @Override
