@@ -7,7 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.design.widget.FloatingActionButton;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,22 +27,12 @@ public class MainActivity extends AppCompatActivity {
         intentFilter = new IntentFilter("ORIGINAL_ACTION");
 
         // onClickListenerの登録
-        //findViewById(R.id.fab).setOnClickListener(button1ClickListener);
-        findViewById(R.id.fab).setOnClickListener(button1ClickListener);
-        /*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        //fab.setOnClickListener(button1ClickListener);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Clear Preferences
-                button1ClickListener(view);
+        findViewById(R.id.button).setOnClickListener(button1ClickListener);
 
 
-            }
-        });
-        */
-       
+
+
+
     }
 
     @Override
@@ -77,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent i) {
             // ブロードキャスト受信時の処理（今回は適当）
-            tv = (TextView) findViewById(R.id.hwLabel);
+            tv = (TextView) findViewById(R.id.textView);
             tv.setText("abc");
         }
     }

@@ -31,4 +31,20 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_menu_delete" />
 
+    <TextView
+        android:text="hello_world"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="buttonClick"
+        android:id="@+id/button"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="54dp" />
+
 </android.support.design.widget.CoordinatorLayout>
