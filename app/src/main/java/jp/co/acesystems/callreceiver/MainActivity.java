@@ -1,7 +1,8 @@
 package jp.co.acesystems.callreceiver;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,6 +10,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.widget.Button;
 import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,12 +33,33 @@ public class MainActivity extends AppCompatActivity {
         intentFilter = new IntentFilter("ORIGINAL_ACTION");
 
         // onClickListenerの登録
-        findViewById(R.id.button).setOnClickListener(button1ClickListener);
+        //findViewById(R.id.button).setOnClickListener(button1ClickListener);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Clear Preferences
+                clearHistories1(view);
+
+
+            }
+        });
 
 
 
 
+    }
 
+
+    private void clearHistories1(View view){
+        getSharedPreferences("CallReceiver", MODE_PRIVATE).edit().clear().commit();
+        Snackbar.make(view, "histories cleared.", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+
+        TextView tv = (TextView) this.findViewById(R.id.hwLabel);
+        SharedPreferences pref = getSharedPreferences("CallReceiver", MODE_PRIVATE);
+        tv.setText(pref.getString("text", "nothing..clearHistories"));
     }
 
     @Override
